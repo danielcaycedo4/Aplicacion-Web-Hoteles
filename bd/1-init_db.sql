@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS ciudades (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre TEXT NOT NULL
+    nombre TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS hoteles (
@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS habitaciones (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     hotel_id INTEGER NOT NULL,
     tipo TEXT NOT NULL,
+    cantidad INTEGER NOT NULL,
     precio REAL NOT NULL,
     FOREIGN KEY (hotel_id) REFERENCES hoteles (id)
 );
