@@ -29,7 +29,7 @@
                     <ul>
                         {% for habitacion in habitaciones[hotel[0]] %}
                             <li>
-                                Tipo: {{ habitacion[2] }}, Precio: ${{ habitacion[4] }}, Cantidad: {{ habitacion[3] }}
+                                Tipo de habitacion: {{ habitacion[2] }}, Precio: ${{ habitacion[4] }}, Cantidad disponible: {{ habitacion[3] }}
                             </li>
                         {% endfor %}
                     </ul>
