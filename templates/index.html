@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoteles</title>
+</head>
+<body>
+    <h1>Bienvenido a la Aplicación de Hoteles</h1>
+    <h2>Seleccione una ciudad:</h2>
+    <form action="/" method="get">
+        <select name="ciudad" id="ciudad">
+            <option value="" disabled selected>Seleccione</option>
+            {% for ciudad in ciudades %}
+                <option value="{{ ciudad[0] }}" {% if request.args.get('ciudad') == ciudad[0]|string %}selected{% endif %}>
+                    {{ ciudad[1] }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Buscar Hoteles</button>
+    </form>
+
+    {% if hoteles %}
+        <h2>Hoteles disponibles:</h2>
+        <ul>
+            {% for hotel in hoteles %}
+                <li>
+                    <strong>{{ hotel[1] }}</strong> - {{ hotel[3] }}
+                    <ul>
+                        {% for habitacion in habitaciones[hotel[0]] %}
+                            <li>
+                                Tipo de habitacion: {{ habitacion[2] }}, Precio: ${{ habitacion[4] }}, Cantidad disponible: {{ habitacion[3] }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
