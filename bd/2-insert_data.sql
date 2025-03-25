@@ -4,13 +4,16 @@ DELETE FROM hoteles;
 DELETE FROM ciudades;
 
 -- Insertar ciudades
-INSERT INTO ciudades (nombre) VALUES ('Cali'), ('Cartagena'), ('Bogotá');
+INSERT INTO ciudades (id, nombre) VALUES 
+(1, 'Cali'), 
+(2, 'Cartagena'), 
+(3, 'Bogotá');
 
 -- Insertar hoteles
-INSERT INTO hoteles (nombre, ciudad_id, direccion) VALUES 
-('Hotel Cali', 1, 'Dirección Cali'),
-('Hotel Cartagena', 2, 'Dirección Cartagena'),
-('Hotel Bogotá', 3, 'Dirección Bogotá');
+INSERT INTO hoteles (id, nombre, ciudad_id, direccion) VALUES 
+(1, 'Hotel Cali', 1, 'Dirección Cali'),
+(2, 'Hotel Cartagena', 2, 'Dirección Cartagena'),
+(3, 'Hotel Bogotá', 3, 'Dirección Bogotá');
 
 -- Insertar habitaciones para Cali
 INSERT INTO habitaciones (hotel_id, tipo, cantidad, precio) VALUES
